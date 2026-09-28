@@ -1,41 +1,34 @@
-İfade: 1 KEYWORD | var
-İfade: 1 UNKNOW | test
-MQuaLix DBG: (dönmedi)
+LEXER: 
 
-İfade: 2 VARNAME | test
-İfade: 2 OPERATOR | =
-İfade: 2 DECNUMBER | 10
-MQuaLix DBG: (dönmedi)
+Line: 1
 
-İfade: 3 VARNAME | test
-MQuaLix DBG: test = 10
+Type: OPERATÖR DEĞİL
+Data: var
 
-İfade: 4 KEYWORD | if
-İfade: 4 VARNAME | test
-İfade: 4 OPERATOR | ==
-İfade: 4 DECNUMBER | 10
-MQuaLix DBG: True!
+Type: OPERATÖR DEĞİL
+Data: test
 
-İfade: 5 VARNAME | test
-İfade: 5 OPERATOR | +
-İfade: 5 DECNUMBER | 10
-MQuaLix DBG: (dönmedi)
+Type: OPERATÖR
+Data: =
 
-İfade: 6 KEYWORD | else
-MQuaLix DBG: (dönmedi)
+Type: OPERATÖR DEĞİL
+Data: 12
 
-İfade: 7 VARNAME | test
-İfade: 7 OPERATOR | +
-İfade: 7 DECNUMBER | 5
-MQuaLix DBG: (dönmedi)
+Line: 2
 
-İfade: 8 KEYWORD | endif
-MQuaLix DBG: (dönmedi)
+Type: OPERATÖR DEĞİL
+Data: Lexer
 
-İfade: 9 KEYWORD | print
-İfade: 9 VARNAME | test
-MQuaLix DBG: (dönmedi)
+Type: OPERATÖR
+Data: ::
 
-İfade: 10 VARNAME | test
-MQuaLix DBG: test = 20
+Type: OPERATÖR DEĞİL
+Data: Type
 
+Type: OPERATÖR
+Data: ::
+
+Type: OPERATÖR DEĞİL
+Data: noop
+
+---
