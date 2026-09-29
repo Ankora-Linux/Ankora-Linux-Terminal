@@ -20,4 +20,4 @@ Derleyici, komut satırından aşağıdaki formatta çağrılır:
 
 ## 2. UYARI:
 
-Bu derleyici, V0.1 sürümündedir. O yüzden bu dallanma (branch) içinde hatalar olabilir. Ama olabildiğince kısa sürede hataları düzeltip V1.0 sürümünü yayınlayacağız!
+Bu terminal, V0.1 sürümündedir. O yüzden bu dallanma (branch) içinde hatalar olabilir. Ama olabildiğince kısa sürede hataları düzeltip V1.0 sürümünü yayınlayacağız!
