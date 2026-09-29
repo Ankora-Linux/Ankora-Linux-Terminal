@@ -1,24 +1,23 @@
-# MQuaLix Derleyici
+# Ankora Linux Terminal
 
-Bu belge, MQuaLix dil derleyicisinin (`compiler.cpp`) nasıl kullanılacağını, hangi argümanlarla çalıştırılacağını ve olası hata durumlarını açıklar.
+Bu belge, Ankora Linux Terminal (`compiler.cpp`) nasıl kullanılacağını, hangi argümanlarla çalıştırılacağını ve olası hata durumlarını açıklar.
 
 ## 1. Çalıştırma
 
 Derleyici, komut satırından aşağıdaki formatta çağrılır:
 ```bash
-./compiler <girdi_dosyası> <çıktı_dosyası>
+./compiler <commands>
 ```
 
 ### Argümanlar:
 
-- `<girdi_dosyası>`: İşlenecek MQuaLix kaynak kod dosyasının yolu.
-- `<çıktı_dosyası>`: Token analiz sonuçlarının ve işlem çıktılarının yazılacağı dosyanın yolu.
+- `<commands>`: Gönderilecek komutlar.
 
 ### Örnek Kullanım:
 ```bash
-./compiler kaynak.micrap cikti.micrab
+./compiler echo "hello world!"
 ```
 
 ## 2. UYARI:
 
-Bu derleyici, V1.1 sürümündedir. O yüzden bu dallanma (branch) içindeki her şey hatalı olabilir. Ama olabildiğince kısa sürede hataları düzeltip V2.0 sürümünü yayınlayacağız!
+Bu derleyici, V0.1 sürümündedir. O yüzden bu dallanma (branch) içinde hatalar olabilir. Ama olabildiğince kısa sürede hataları düzeltip V1.0 sürümünü yayınlayacağız!
