@@ -1,6 +1,4 @@
 #include "lexer.hpp"
-#include "parser.hpp"
-#include <ios>
 #include <sstream>
 #include <fstream>
 #include <iostream>
@@ -18,11 +16,6 @@ static void return_error(const std::string& error_information, const int returns
     error_info = "İfade: " + std::to_string(ifade_no) + " - (" + error_information + ")";
     ret = returns;
     spesifik_ret = spesifik_returns;
-}
-
-static std::string typeto(Lexer::Type lexertype) {
-    if (lexertype == Lexer::Type::noop) return "OPERATÖR DEĞİL";
-    else return "OPERATÖR";
 }
 
 int main(int argc, char* argv[]) {
@@ -46,15 +39,38 @@ int main(int argc, char* argv[]) {
     std::stringstream ss;
     ss << input.rdbuf();
 
-    std::map<int, std::vector<Lexer::Out>> code = lexerfunc(ss);
+    std::map<int, std::vector<std::string>> code1 = lexerfunc(ss);
 
     output << "LEXER: " << "\n\n";
-    for (int line = 0; line < code.size(); line++) {
+    for (int line = 0; line < code1.size(); line++) {
         output << "Line: " << line+1 << "\n\n";
-        std::vector<Lexer::Out> out = code[line];
-        for (const auto& [type, data] : out) {
-            output << "Type: " << typeto(type) << "\n"
-                   << "Data: " << data << "\n" << std::endl;
+        std::vector<std::string> out = code1[line];
+
+        
+        if (out.size() < 2) {
+            if (out[0] == "notepad") {
+                std::fstream file(out[1]);
+
+                if (!file.is_open()) {
+                    return_error(
+                        "Notepad: " + out[1] + " dosyası açılamadı!",
+                        -1,
+                        "NOTEPAD::BOZUK_DOSYA"
+                    );
+                }
+
+                if (file.bad()) {
+                    return_error(
+                        "Notepad: " + out[1] + " dosyası bozuk görünüyor!",
+                        -1,
+                        "NOTEPAD::BOZUK_DOSYA"
+                    );
+                }
+
+                if (error) break;
+
+                // @miracsalih: "Buraya syscall veya metin tabanlı yazılım eklenebilir @Parsozkn."
+            }
         }
     }
     output << "---";
@@ -63,12 +79,12 @@ int main(int argc, char* argv[]) {
     output.close();
 
     if (error) {
-        std::cerr << "MQuaLix DBG: " << error_info << std::endl;
-        std::cerr << "MQuaLix: " << ret << " döndü. " << spesifik_ret << std::endl << std::endl;
+        std::cerr << error_info << "\n";
+        std::cerr << "Terminal: " << ret << " döndü. " << spesifik_ret << "\n\n";
         return ret;
     } else {
-        std::cout << "MQuaLix DBG: Hata bulunamadı." << std::endl;
-        std::cout << "MQuaLix: 0 döndü." << std::endl;
+        std::cout << "Terminal: Hata bulunamadı." << "\n";
+        std::cout << "Terminal: 0 döndü." << "\n\n";
         return 0;
     }
 }
